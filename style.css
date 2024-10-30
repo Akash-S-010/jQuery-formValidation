@@ -71,3 +71,9 @@ body {
     color: #e74c3c;
     margin-top: 2px;
 }
+
+@media (width<700px){
+    body{
+        padding: 0 20px;
+    }
+}
