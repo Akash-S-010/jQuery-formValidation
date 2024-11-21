@@ -45,6 +45,7 @@ body {
     border-radius: 6px;
     border: 2px solid rgb(202, 200, 200);
     color: black;
+    outline: none;
 }
 .input-group .error-para{
     font-size: 14px;
