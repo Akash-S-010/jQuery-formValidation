@@ -1,3 +1,11 @@
+$.validator.addMethod(
+    "customEmail",
+    function (value, element) {
+        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(value);
+    },
+    "Please enter a valid email address."
+);
+
 $("#form").validate({
     rules: {
         username: {
@@ -7,7 +15,7 @@ $("#form").validate({
         },
         email: {
             required: true,
-            email: true 
+            customEmail: true
         },
         password: {
             required: true,
@@ -16,18 +24,18 @@ $("#form").validate({
         },
         password2: {
             required: true,
-            equalTo: "#password" 
+            equalTo: "#password"
         }
     },
     messages: {
         username: {
             required: "Username is required.",
-            minlength: "Minumum 4 charecters required",
+            minlength: "Minumum 4 characters required",
             maxlength: "Maximum 10 characters."
         },
         email: {
             required: "Email is required.",
-            email: "Please enter a valid email address."
+            customEmail: "Please enter a valid email address."
         },
         password: {
             required: "Password is required.",
@@ -39,5 +47,4 @@ $("#form").validate({
             equalTo: "Passwords do not match."
         }
     },
-    
 });
